@@ -51,7 +51,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar
+          cart={this.state.inCart}
+          favourites={this.state.inFavourites}
+          />
         <Router>
           <Switch>
             <Route exact path="/" render={(props) => {

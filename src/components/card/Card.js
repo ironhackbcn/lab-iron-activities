@@ -17,7 +17,7 @@ export default class Card extends Component {
     }
     this.setState({
       clicked: !clicked,
-    })
+    });
     this.props.addToCart(itemBought);
   };
 

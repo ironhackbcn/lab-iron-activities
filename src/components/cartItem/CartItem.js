@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './cartItem.css';
 
 export default class CartItem extends Component {
+
+  handleClick = () => {
+    
+  }
+
   render() {
     return (
       <div>
@@ -10,7 +15,7 @@ export default class CartItem extends Component {
         </div>
         <p className="title">{this.props.title}</p>
         <p className="price">{this.props.price}</p>
-        <button className="delete">X</button>
+        <button className="delete" onClick={this.handleClick}>X</button>
       </div>
     )
   }
