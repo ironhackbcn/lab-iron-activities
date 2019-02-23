@@ -14,10 +14,13 @@ export default class Navbar extends Component {
         <p className="total"></p>
         <Cart
           items={this.props.cart}
-          icon='shopping-cart' />
+          icon='shopping-cart'
+          deleteFromCart={this.props.deleteFromCart}
+          />
         <Cart
           items={this.props.favourites}
-          icon='star' />
+          icon='star'
+          />
         </div>
       </div>
     )

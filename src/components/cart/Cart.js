@@ -25,6 +25,7 @@ export default class Cart extends Component {
         title={item.title}
         url={item.url}
         price={item.price}
+        deleteFromCart={this.props.deleteFromCart}        
         />
     });
   }

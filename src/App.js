@@ -27,6 +27,16 @@ class App extends Component {
     });
   }
 
+  deleteFromCart = (name) => {
+    const { inCart } = this.state;
+
+    const updatedCart = inCart.filter(item => item.title !== name);
+
+    this.setState({
+      inCart: updatedCart,
+    })
+  }
+
   addToFavourites = () => {
 
   }
@@ -54,6 +64,7 @@ class App extends Component {
         <Navbar
           cart={this.state.inCart}
           favourites={this.state.inFavourites}
+          deleteFromCart={this.deleteFromCart}
           />
         <Router>
           <Switch>
