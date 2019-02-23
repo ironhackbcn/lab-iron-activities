@@ -29,7 +29,6 @@ class App extends Component {
 
   deleteFromCart = (name) => {
     const { inCart } = this.state;
-
     const updatedCart = inCart.filter(item => item.title !== name);
 
     this.setState({
@@ -37,8 +36,21 @@ class App extends Component {
     })
   }
 
-  addToFavourites = () => {
+  addToFavourites = (item) => {
+    const { inFavourites } = this.state;
+    inFavourites.push(item);
+    this.setState({
+      inFavourites: inFavourites,
+    });
+  }
 
+  deleteFromCart = (name) => {
+  const { inFavourites } = this.state;
+  const updatedFavourites = inFavourites.filter(item => item.title !== name);
+
+  this.setState({
+      inCart: updatedFavourites,
+    })
   }
 
   listMuseums = () => {
