@@ -7,4 +7,15 @@
 .carts{
   display: flex;
   flex-direction: row;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-right: 2rem;
+}
+
+.icon{
+  margin-right: 1rem;
+}
+
+.logo{
+  font-size: 1.5rem;
 }

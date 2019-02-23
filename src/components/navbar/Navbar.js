@@ -8,8 +8,13 @@ export default class Navbar extends Component {
       <div className="navbar">
         <p className="logo">BRAND</p>
         <div className="carts">
+        <p className="total"></p>
+        <div className="icon">
           <FontAwesomeIcon icon="shopping-cart" />
+        </div>
+        <div className="icon">
           <FontAwesomeIcon icon="star" />
+        </div>
         </div>
       </div>
     )
