@@ -124,7 +124,7 @@ class App extends Component {
           />
         <Router>
           <Switch>
-            <Route exact path="/" render={(props) => {
+            <Route exact path="/" render={() => {
               return(
                 <div className="container">
                   {this.listMuseums()}
@@ -132,7 +132,15 @@ class App extends Component {
               )
             }}>
             </Route>
-            <Route path="/activities/:id" component={CardDetails} />              
+            <Route 
+              path="/activities/:id"
+              render={props => (
+                <CardDetails
+                  museums={this.state.museums} 
+                  { ...props }
+                />
+              )}
+              />              
           </Switch>
         </Router>
       </div>

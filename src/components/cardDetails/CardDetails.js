@@ -1,27 +1,33 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import museumsList from '../../data/data.json';
 
 export default class CardDetails extends Component {
-  museums = museumsList;
-  id = this.props.match.params.id;
-  details = this.museums.filter(museum => museum.uuid === this.id);
+  state = {
+    id: this.props.match.params,
+    museums: this.props.museums,
+  }
 
   render() {
-    this.museums.forEach(museum => console.log(museum.uuid))
-    console.log(this.museums);
-    console.log(this.id);
-    console.log(this.details);
+    const { museums, id } = this.state;
+    console.log(id);
+    console.log(museums);
+    const selectedMuseum = museums.filter(museum => museum.uuid === id);
+    console.log('selectedMuseum', selectedMuseum);
+    // console.log('museum.uiid', selectedMuseum[0].uuid);
+
     return (
-      <div className="card">
-        <div className="image-container">
-          <img className="image" src={this.details.url} alt={this.details.title} />
-        </div>
-        <h2 className="card-title">{this.details.title}</h2>
-        <p className="card-desc">{this.details.description}</p>
-        <p className="price">{this.details.price}</p>
-        <Link to={"/"}>Go back</Link>
+      <div>
+        hello
       </div>
+      // <div className="card">
+      //   <div className="image-container">
+      //     <img className="image" src={this.details.url} alt={this.details.title} />
+      //   </div>
+      //   <h2 className="card-title">{this.details.title}</h2>
+      //   <p className="card-desc">{this.details.description}</p>
+      //   <p className="price">{this.details.price}</p>
+      //   <Link to={"/"}>Go back</Link>
+      // </div>
     )
   }
 }
