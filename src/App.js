@@ -15,26 +15,32 @@ class App extends Component {
   
   state = {
     museums: museumsList.splice(0, 18),
+    inCartState: [],
     inCart: [],
+    inFavouritesState: [],
     inFavourites: [],
-  }
+  };
 
-  addToCart = (item) => {
-    const { inCart } = this.state;
+  addToCart = (item, state, index) => {
+    const { inCart, inCartState } = this.state;
     inCart.push(item);
+    inCartState[index] = state;
+
     this.setState({
       inCart: inCart,
+      inCartState: inCartState,
     });
-  }
+  };
 
-  deleteFromCart = (name) => {
-    const { inCart } = this.state;
+  deleteFromCart = (name, state, index) => {
+    const { inCart, inCartState } = this.state;
     const updatedCart = inCart.filter(item => item.title !== name);
-
+    inCartState[index] = state;
     this.setState({
       inCart: updatedCart,
-    })
-  }
+      inCartState: state,
+    });
+  };
 
   addToFavourites = (item) => {
     const { inFavourites } = this.state;
@@ -42,33 +48,46 @@ class App extends Component {
     this.setState({
       inFavourites: inFavourites,
     });
-  }
+  };
 
-  deleteFromCart = (name) => {
-  const { inFavourites } = this.state;
-  const updatedFavourites = inFavourites.filter(item => item.title !== name);
+  deleteFromFavourites = (name) => {
+    const { inFavourites } = this.state;
+    const updatedFavourites = inFavourites.filter(item => item.title !== name);
 
-  this.setState({
-      inCart: updatedFavourites,
-    })
-  }
+    this.setState({
+      inFavourites: updatedFavourites,
+    });
+  };
+
+  handleInCartState = (index, value) => {
+    const updatedInCartState = [...this.state.inCartState];
+    updatedInCartState[index] = value;
+
+    this.setState({
+        inCartState: updatedInCartState,
+    });
+  };
 
   listMuseums = () => {
     const { museums } = this.state;
 
-    return museums.map((museum) => {
+    return museums.map((museum, index) => {
+
       return <Card
         key={museum.uuid}
+        index={index}
         title={museum.title}
         description={museum.description}
         price={museum.retail_price.formatted_value}
         url={museum.cover_image_url}
         idUrl={`/activities/${museum.uuid}`}
         addToCart={this.addToCart}
+        handleInCartState={this.handleInCartState}
+        inCartState={this.state.inCartState}
         addToFavourites={this.addToFavourites}
         />
     });
-  }
+  };
 
   render() {
     return (
@@ -93,7 +112,7 @@ class App extends Component {
         </Router>
       </div>
     );
-  }
-}
+  };
+};
 
 export default App;

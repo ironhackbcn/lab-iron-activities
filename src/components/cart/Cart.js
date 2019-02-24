@@ -20,9 +20,11 @@ export default class Cart extends Component {
   listItems = () =>{
     const { items } = this.props;
 
-    return items.map(item => {
+    return items.map((item, index) => {
       return <CartItem
+        key={`${item.title}-${item.index}`}
         title={item.title}
+        index={index}
         url={item.url}
         price={item.price}
         deleteFromCart={this.props.deleteFromCart}        

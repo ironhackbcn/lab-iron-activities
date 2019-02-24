@@ -4,8 +4,8 @@ import './cartItem.css';
 export default class CartItem extends Component {
 
   handleClick = () => {
-    const { title } = this.props;
-    this.props.deleteFromCart(title)
+    const { title, index } = this.props;
+    this.props.deleteFromCart(title, false, index);
   }
 
   render() {
