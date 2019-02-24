@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import museumsList from './data/data.json';
+import axios from 'axios';
 import './Styles/app.css'
 
 import Navbar from './components/navbar/Navbar.js';
@@ -14,10 +14,21 @@ library.add(faShoppingCart, faStar);
 class App extends Component {
   
   state = {
-    museums: museumsList.splice(0, 18),
+    museums: [],
     inCart: [],
     inFavourites: [],
   };
+
+  //Connect to API and fetch information needed
+
+  componentDidMount() {
+    axios.get("https://api.musement.com/api/v3/venues/164/activities?limit=18")
+    .then(response => {
+        this.setState({museums: response.data})
+    })
+    .catch(error => console.log(error));
+  };
+
 
   addToCart = (item, name) => {
     const { museums, inCart } = this.state;
