@@ -3,9 +3,9 @@ import './cartItem.css';
 
 export default class CartItem extends Component {
 
-  handleClick = () => {
-    const { title, index } = this.props;
-    this.props.deleteFromCart(title, false, index);
+  handleDelete = () => {
+    const { title } = this.props;
+    this.props.deleteFromCart(title);
   }
 
   render() {
@@ -16,7 +16,7 @@ export default class CartItem extends Component {
         </div>
         <p className="title">{this.props.title}</p>
         <p className="price">{this.props.price}</p>
-        <button className="delete" onClick={this.handleClick}>X</button>
+        <button className="delete" onClick={this.handleDelete}>X</button>
       </div>
     )
   }

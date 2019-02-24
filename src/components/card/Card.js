@@ -11,20 +11,14 @@ export default class Card extends Component {
   }
 
   addCart = () => {
-    const inCartState = true;
-    const { index } = this.props;
     const itemBought = {
       title: this.props.title,
       price: this.props.price,
       url: this.props.url,
     }
-    this.props.addToCart(itemBought, inCartState, index);
-  };
-
-  handleInCartState = () => {
-    const { index } = this.props;
-    const { inCart } = this.state;
-    this.props.handleInCartState(index, inCart);
+    const { museums, title } = this.props;
+    const selectedMuseum = museums.filter(museum => museum.title === title);
+    this.props.addToCart(itemBought, selectedMuseum[0].title);
   };
 
   addFavourites = () => {
@@ -42,6 +36,7 @@ export default class Card extends Component {
 
 
   render() {
+
     return (
       <div className='card'>
         <div className='image-container'>
@@ -55,7 +50,7 @@ export default class Card extends Component {
           className='btn' 
           onClick={this.addCart}
           >
-          {(this.props.inCartState ? 'IN CART' : 'ADD TO CART')}
+          {(this.props.museum.inCart ? 'IN CART' : 'ADD TO CART')}
         </button>
         <button 
           className='bubble' 
