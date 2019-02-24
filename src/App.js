@@ -21,16 +21,20 @@ class App extends Component {
 
   addToCart = (item, name) => {
     const { museums, inCart } = this.state;
-    inCart.push(item);
     const selectedMuseum = museums.filter(museum => museum.title === name);
-    const museumIndex = museums.indexOf(selectedMuseum[0]);
-    selectedMuseum[0].inCart = true;
-    museums.splice(museumIndex, 1, selectedMuseum[0]);
-
-    this.setState({
-      museums: museums,
-      inCart: inCart,
-    });
+    const selectedMuseumInCart = inCart.filter(museum => museum.title === selectedMuseum[0].title);
+    
+    if (selectedMuseumInCart.length === 0){
+      inCart.push(item);
+      const museumIndex = museums.indexOf(selectedMuseum[0]);
+      selectedMuseum[0].inCart = true;
+      museums.splice(museumIndex, 1, selectedMuseum[0]);
+  
+      this.setState({
+        museums: museums,
+        inCart: inCart,
+      });
+    }
   };
 
   deleteFromCart = (name) => {
@@ -49,16 +53,20 @@ class App extends Component {
 
   addToFavourites = (item, name) => {
     const { museums, inFavourites } = this.state;
-    inFavourites.push(item);
     const selectedMuseum = museums.filter(museum => museum.title === name);
-    const museumIndex = museums.indexOf(selectedMuseum[0]);
-    selectedMuseum[0].inFavourites = true;
-    museums.splice(museumIndex, 1, selectedMuseum[0]);
-
-    this.setState({
-      museums: museums,
-      inFavourites: inFavourites,
-    });
+    const selectedMuseumInFavourites = inFavourites.filter(museum => museum.title === selectedMuseum[0].title);
+    
+    if (selectedMuseumInFavourites.length === 0) {
+      inFavourites.push(item);
+      const museumIndex = museums.indexOf(selectedMuseum[0]);
+      selectedMuseum[0].inFavourites = true;
+      museums.splice(museumIndex, 1, selectedMuseum[0]);
+  
+      this.setState({
+        museums: museums,
+        inFavourites: inFavourites,
+      });
+    }    
   };
 
   deleteFromFavourites = (name) => {
