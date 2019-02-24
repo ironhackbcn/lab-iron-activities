@@ -5,11 +5,6 @@ import './card.css';
 
 export default class Card extends Component {
 
-  state={
-    inCart: false,
-    inFavourites: false,
-  }
-
   addCart = () => {
     const itemBought = {
       title: this.props.title,
@@ -22,16 +17,14 @@ export default class Card extends Component {
   };
 
   addFavourites = () => {
-    const { inFavourites } = this.state;
     const itemFavourite = {
       title: this.props.title,
       price: this.props.price,
       url: this.props.url,
     }
-    this.setState({
-      inFavourites: !inFavourites,
-    });
-    this.props.addToFavourites(itemFavourite);
+    const { museums, title } = this.props;
+    const selectedMuseum = museums.filter(museum => museum.title === title);
+    this.props.addToFavourites(itemFavourite, selectedMuseum[0].title);
   };
 
 
@@ -47,13 +40,13 @@ export default class Card extends Component {
         <Link to={this.props.idUrl}>More Details</Link>
         <p className='price'>{this.props.price}</p>
         <button 
-          className='btn' 
+          className='btn'
           onClick={this.addCart}
           >
           {(this.props.museum.inCart ? 'IN CART' : 'ADD TO CART')}
-        </button>
+        </button> 
         <button 
-          className='bubble' 
+          className='bubble'
           onClick={this.addFavourites}
           >
           <FontAwesomeIcon icon='star' />

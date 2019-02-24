@@ -47,20 +47,31 @@ class App extends Component {
     });
   };
 
-  addToFavourites = (item) => {
-    const { inFavourites } = this.state;
+  addToFavourites = (item, name) => {
+    const { museums, inFavourites } = this.state;
     inFavourites.push(item);
+    const selectedMuseum = museums.filter(museum => museum.title === name);
+    const museumIndex = museums.indexOf(selectedMuseum[0]);
+    selectedMuseum[0].inFavourites = true;
+    museums.splice(museumIndex, 1, selectedMuseum[0]);
+
     this.setState({
+      museums: museums,
       inFavourites: inFavourites,
     });
   };
 
   deleteFromFavourites = (name) => {
-    const { inFavourites } = this.state;
+    const { inFavourites, museums } = this.state;
     const updatedFavourites = inFavourites.filter(item => item.title !== name);
+    const selectedMuseum = museums.filter(museum => museum.title === name);
+    const museumIndex = museums.indexOf(selectedMuseum[0]);
+    selectedMuseum[0].inFavourites = false;
+    museums.splice(museumIndex, 1, selectedMuseum[0]);
 
     this.setState({
       inFavourites: updatedFavourites,
+      museums: museums,
     });
   };
 
@@ -90,6 +101,7 @@ class App extends Component {
           cart={this.state.inCart}
           favourites={this.state.inFavourites}
           deleteFromCart={this.deleteFromCart}
+          deleteFromFavourites={this.deleteFromFavourites}
           />
         <Router>
           <Switch>

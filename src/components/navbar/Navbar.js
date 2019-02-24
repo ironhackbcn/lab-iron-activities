@@ -15,11 +15,16 @@ export default class Navbar extends Component {
         <Cart
           items={this.props.cart}
           icon='shopping-cart'
+          type='shoping-cart'
           deleteFromCart={this.props.deleteFromCart}
+          deleteFromFavourites={this.props.deleteFromFavourites}
           />
         <Cart
           items={this.props.favourites}
           icon='star'
+          type='favourites'
+          deleteFromCart={this.props.deleteFromCart}
+          deleteFromFavourites={this.props.deleteFromFavourites}
           />
         </div>
       </div>
