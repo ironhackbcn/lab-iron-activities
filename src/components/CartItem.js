@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class AddToCartButton extends Component {
+export default class CartItem extends Component {
   render() {
     return (
       <div>
-        <button>Add To Cart</button>
+        {this.props.item.title}
       </div>
     )
   }

@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import '../styles/navbar.css';
+import Cart from './Cart';
 
 export default class Navbar extends Component {
+
   render() {
+    const cart = this.props.cart;
+    const favs = this.props.favs;
     return (
       <nav className="navbar">
         <div className="navbar-logo-container">
@@ -13,6 +17,10 @@ export default class Navbar extends Component {
           <li className="navbar-link"><Link to="/">Home</Link></li>
           <li className="navbar-link"><Link to="/activities">Activities</Link></li>
         </ul>
+        <div className="navbar-icons-container">
+          < Cart cart={cart} />
+          <span><i className="fas fa-star"></i><sup>{favs.length > 0 ? favs.length : ''}</sup></span>
+        </div>
       </nav>
     )
   }

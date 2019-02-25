@@ -15,3 +15,11 @@
 .navbar-link-list li:not(:first-child) {
   margin-left: 1rem;
 }
+
+.icon-bubble {
+  background-color: blue;
+  color: white;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}

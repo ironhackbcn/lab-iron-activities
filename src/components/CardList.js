@@ -13,7 +13,12 @@ export default class CardList extends Component {
   listActivities = () => {
     const { activities } = this.state;
     return activities.map((activity, index) => {
-      return < Card activity={ activity } />
+      return < Card 
+        activity={ activity }
+        addToCart={this.props.addToCart} 
+        deleteFromCart={this.props.deleteFromCart}
+        addToFav={this.props.addToFav}
+        unFav = {this.props.unFav} />
     })
   }
 
