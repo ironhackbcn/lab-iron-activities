@@ -13,6 +13,7 @@ const Navbar = (props) => {
   }
   return (
     <div>
+      <h1>Hola Eter</h1>
       <h2>BRAND</h2>
       <ul>
         <li><button>Favorites</button>{props.favorites.length}</li>

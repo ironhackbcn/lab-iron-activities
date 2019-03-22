@@ -61,6 +61,7 @@ class ContextProvider extends Component {
   }
 
   handleCart = (e, activity) => {
+    console.log(activity);
     let inCart = false;
     let index;
     this.state.cart.forEach((e, i) => {
@@ -85,6 +86,10 @@ class ContextProvider extends Component {
     }
   }
 
+  handleCartList = (e)=>{
+
+  }
+
   render() {
     return (
       <MyContext.Provider value={{
@@ -92,7 +97,8 @@ class ContextProvider extends Component {
         cart: this.state.cart,
         counter: this.state.counter,
         addFavorites: this.handleFavorites,
-        addCart: this.handleCart
+        addCart: this.handleCart,
+        showCart: this.handleCartList,
       }}>
         {this.props.children}
       </MyContext.Provider>

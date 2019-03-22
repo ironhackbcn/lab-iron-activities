@@ -3,6 +3,7 @@ import axios from 'axios';
 import Provider, { withContext } from './Provider';
 import Card from './Card';
 import Navbar from './Navbar';
+import Cart from './Cart';
 
 class Activities extends Component {
 
@@ -46,6 +47,7 @@ class Activities extends Component {
         List activities
         <Provider>
           <Navbar/>
+          <Cart/>
           {this.renderList()}
         </Provider>
       </div>
