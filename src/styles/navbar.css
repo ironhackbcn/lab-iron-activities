@@ -1,0 +1,25 @@
+.navbar {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar-link-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0;
+}
+
+.navbar-link-list li:not(:first-child) {
+  margin-left: 1rem;
+}
+
+.icon-bubble {
+  background-color: blue;
+  color: white;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
