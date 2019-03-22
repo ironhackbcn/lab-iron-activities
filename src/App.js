@@ -7,15 +7,19 @@ import './style.css'
 // Components
 import CardsList from './components/CardsList'
 
-class App extends Component {
+// Context
+const MyContext = React.createContext();
+export const Consumer = MyContext.Consumer
 
+class App extends Component {
   render() {
     return (
       <section>
-        <CardsList />
+        <MyContext.Provider value={'Provider'}>
+          <CardsList />
+        </MyContext.Provider>
       </section>
     );
   }
 }
-
 export default App;
