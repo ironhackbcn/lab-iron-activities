@@ -1,0 +1,33 @@
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 10px;
+  border: 1px solid black;
+  width: 400px;
+  height: 400px;
+  padding: 10px;
+}
+
+.card img {
+  width: 150px;
+  height: 100px;
+}
+
+.navbar {
+  border: 1px solid black;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-card-menu {
+  width: 300px;
+  position: fixed;
+  z-index: 3;
+  left: 80%;
+  background: white;
+  
+}
