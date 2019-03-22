@@ -26,23 +26,27 @@ class Card extends Component {
     })
   }
 
-  sumFavorites = (event) => {
-    const { addFavorites } = this.props;
-    const { favorites } = this.state;
-    event.preventDefault()
-    const { isClicked } = this.state;
-    if(!isClicked){
-      this.setState({
-        favorites: this.state.favorites + 1,
-        isClicked: true
-      }, ()=>{addFavorites(favorites)}) 
-    } else {
-      this.setState({
-        favorites: this.state.favorites - 1,
-        isClicked: false
-      }, ()=>{addFavorites(favorites)}) 
-    }
-    
+  sumFavorites = async (event) => {
+    try {
+      event.preventDefault()
+      const { addFavorites, restFavorites } = this.props;
+      const { isClicked } = this.state;
+      if(!isClicked){
+       await this.setState({
+          favorites: this.state.favorites + 1,
+          isClicked: true
+        })
+        await addFavorites() 
+      } else {
+        await this.setState({
+          favorites: this.state.favorites - 1,
+          isClicked: false
+        }) 
+        await restFavorites()
+      }
+    } catch(error){
+      console.log(error)
+    } 
   }
 
   render() {

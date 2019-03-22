@@ -14,6 +14,7 @@ export const contextHOC = (Comp) => {
               addCards={value.addCards}
               addFavorites={value.addFavorites}
               totalFavorites={value.totalFavorites}
+              restFavorites={value.restFavorites}
               {...this.props}
             />
             )
@@ -39,9 +40,15 @@ class ContextProvider extends Component {
     })
   }
 
-  addFavorites = (favorites) => {
+  addFavorites = () => {
     this.setState({
-      favorites: this.state.favorites + favorites
+      favorites: this.state.favorites + 1
+    })
+  }
+
+  restFavorites = () => {
+    this.setState({
+      favorites: this.state.favorites - 1
     })
   }
 
@@ -53,7 +60,8 @@ class ContextProvider extends Component {
           cards: this.state.cards,
           addCards: this.addCards,
           addFavorites: this.addFavorites,
-          totalFavorites: this.state.favorites
+          restFavorites: this.restFavorites,
+          totalFavorites: this.state.favorites,
         }}>
           {this.props.children}
         </Context.Provider>

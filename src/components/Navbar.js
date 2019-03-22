@@ -24,11 +24,11 @@ class Navbar extends Component {
 
 
   render() {
-    console.log(this.props)
+    const {totalFavorites} = this.props
     return (
       <div className="navbar">
-        <h4>Navbar</h4>
-        
+        <h2>Navbar</h2>
+        <h5>{totalFavorites}</h5>
         <div className="navbar-card-menu">
           {this.paintCards()}
         </div>
