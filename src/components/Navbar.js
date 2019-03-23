@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 // Components
 import Cart from './Cart'
+import Favorite from './Favorite'
 export class Navbar extends Component {
   render() {
     return (
@@ -9,12 +10,7 @@ export class Navbar extends Component {
         <div className="container">
           <div className="field is-grouped">
             <p className="control">
-              <button className="button is-primary">
-                <span className="icon is-small">
-                  <i className="fas fa-star"></i>
-                </span>
-                <span>Favorite</span>
-              </button>
+              <Favorite />
             </p>
             <p className="control">
               <Cart />

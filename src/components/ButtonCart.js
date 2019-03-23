@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import { Consumer } from '../App'
 
-class Button extends Component {
+class ButtonCart extends Component {
 
   state = {
     isAddToCart: false,
   }
 
   handleClick = (addToCart) => {
-    this.setState(
-      { isAddToCart: !this.state.isAddToCart }
-    )
-    if(!this.state.isAddToCart){
+    if (!this.state.isAddToCart) {
+      this.setState(
+        { isAddToCart: true }
+      )
       addToCart(this.props.activity)
     }
   }
@@ -24,9 +24,9 @@ class Button extends Component {
             return (
               <div>
                 {
-                  (this.state.isAddToCart) 
-                  ? <button disabled className='button is-success disabled'>Booked</button>
-                  : <button onClick={() => { this.handleClick(value.addToCart) }} className='button is-link'>Add to cart</button>
+                  (this.state.isAddToCart)
+                    ? <button disabled className='button is-success disabled'>Booked</button>
+                    : <button onClick={() => { this.handleClick(value.addToCart) }} className='button is-link'>Add to cart</button>
                 }
               </div>
             )
@@ -37,5 +37,5 @@ class Button extends Component {
   }
 }
 
-export default Button
+export default ButtonCart
 

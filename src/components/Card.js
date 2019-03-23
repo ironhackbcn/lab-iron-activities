@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 // Components
-import Button from './Button';
+import ButtonCart from './ButtonCart';
+import ButtonFavorite from './ButtonFavorite';
 
 class Card extends Component {
   render() {
@@ -11,6 +12,7 @@ class Card extends Component {
         <div className="card-image">
           <figure className="image is-4by3">
             <img src={cover_image_url} alt={title} />
+            <ButtonFavorite activity={this.props.activity} />
           </figure>
         </div>
         <div className="card-content">
@@ -20,7 +22,7 @@ class Card extends Component {
             </div>
           </div>
           <div className="content">{description}</div>
-          <Button activity={this.props.activity}>{this.props.child}</Button>
+          <ButtonCart activity={this.props.activity}>{this.props.child}</ButtonCart>
         </div>
       </div>
     )

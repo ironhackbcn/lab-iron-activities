@@ -15,11 +15,18 @@ export const Consumer = Context.Consumer
 class App extends Component {
   state = {
     cart: [],
+    favorite: [],
   }
 
   handleAddToCart = (newActivity) => {
     this.setState(
       { cart: [...this.state.cart, newActivity] }
+    )
+  }
+
+  handleAddToFavorite = (newActivity) => {
+    this.setState(
+      { favorite: [...this.state.favorite, newActivity] }
     )
   }
 
@@ -31,6 +38,8 @@ class App extends Component {
             { 
               addToCart: this.handleAddToCart,
               cart: this.state.cart,
+              addToFavorite: this.handleAddToFavorite,
+              favorite: this.state.favorite,
             }
           }
         >

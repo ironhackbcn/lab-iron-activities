@@ -13,7 +13,7 @@ export class Cart extends Component {
                 <span className="icon is-small">
                   <i className="fas fa-shopping-cart"></i>
                 </span>
-                <span>{value.cart.length} Favorite</span>
+                <span>{value.cart.length} Activities</span>
               </button>
             )
           }
