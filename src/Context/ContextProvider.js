@@ -34,7 +34,6 @@ class ContextProvider extends Component {
   }
 
   addCards = (card) => {
-    console.log('card', card);
     this.setState({
       cards: [...this.state.cards, card]
     })

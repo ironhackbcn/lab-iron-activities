@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { cardCall } from '../API/cardCall'
+import { cardCall } from '../API/cardCall';
 import Card from './Card'
+
 
 class CardList extends Component {
 

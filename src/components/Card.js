@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { contextHOC } from '../Context/ContextProvider';
+import { Link } from 'react-router-dom';
 
 class Card extends Component {
 
@@ -19,7 +20,9 @@ class Card extends Component {
         title,
         cover_image_url,
         description,
-        retail_price
+        price: retail_price.value,
+        currency: retail_price.currency,
+        counter: 1
       }
     }, () => {
       addCards(this.state.card)
@@ -68,6 +71,9 @@ class Card extends Component {
           Favorite
         </button>
         <h4>{this.state.favorites}</h4>
+        <Link to={`/${title}`} >
+        More
+        </Link>
       </div>
     );
   }

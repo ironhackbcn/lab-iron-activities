@@ -7,7 +7,6 @@
   margin: 10px;
   border: 1px solid black;
   width: 400px;
-  height: 400px;
   padding: 10px;
 }
 
@@ -28,6 +27,7 @@
   position: fixed;
   z-index: 3;
   left: 80%;
+  top: 10%;
   background: white;
   
 }
