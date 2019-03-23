@@ -1,0 +1,66 @@
+.tour-item img {
+  height: 10rem;
+}
+
+.card-body {
+  display: grid;
+  grid-template-columns: 20% 50% 10% 10%;
+  grid-column-gap: 3%;
+  align-items: center;
+}
+
+.card {
+  position: fixed;
+  top: 6rem;
+  right: 1rem;
+  width: 40%;
+  z-index: 1;
+  box-shadow: 0.5px 0.2px 4px #000;
+}
+
+.card-body img {
+  height: 3rem;
+}
+
+.card-body h5 {
+  font-size: 0.5rem;
+  widows: 3rem;
+}
+
+.card-body p {
+  font-size: 0.5rem;
+}
+
+i {
+  margin-left: 1rem;
+}
+
+nav p {
+  margin-bottom: 0;
+}
+
+.main {
+  margin-top: 6rem;
+}
+
+.price {
+  text-align: center;
+}
+
+.btn {
+  border-radius: 15rem;
+}
+
+.tour-item {
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  height: 80vh;
+}
+
+.tour-item button {
+  width: 100%;
+}
+
+.activities-list {
+  margin-top: 7rem;
+}
