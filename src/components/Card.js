@@ -25,32 +25,37 @@ const Card = (props) => {
     }
   });
 
-  let favStyle = {
-    backgroundColor: 'white',
-    border: '1px solid black'
+  const imageStyle = {
+    position: 'relative',
+    padding: '15px'
   }
 
-  let cartStyle = {
+  let favStyle = {
+    position: 'absolute',
+    top: '0px',
+    right: '0px',
     backgroundColor: 'white',
-    border: '1px solid black'
+    border: '0.5px solid gray',
+    color: '#3d3d3d',
+    width: '50px',
+    height: '50px',
+    borderRadius: '50px',
   }
 
   if (inFavorites) {
-    favStyle.backgroundColor = 'red';
+    favStyle.backgroundColor = '#3d3d3d';
   }
 
-  if (inCart) {
-    cartStyle.backgroundColor = 'red';
-  }
   return (
-    <div>
-      <button onClick={(e) => props.addFavorites(e, card)} style={favStyle}>FAV</button>
-      <img src={props.image} alt={props.title} width='300px' />
-      <h1>{props.title}</h1>
+    <div className="card">
+      <div style={imageStyle}>
+        <button onClick={(e) => props.addFavorites(e, card)} style={favStyle}><img src="./images/star-gray.png" alt="star" /></button>
+        <img src={props.image} alt={props.title} width='300px' />
+      </div>
+      <h3>{props.title}</h3>
       <p>{props.description}</p>
-      <p>$ {props.price.toFixed(2)}</p>
-      {props.counter}
-      <button onClick={(e) => props.addCart(e, card)} style={cartStyle}>Add Cart</button>
+      <h3>$ {props.price.toFixed(2)}</h3>
+      <button onClick={(e) => props.addCart(e, card)} className={inCart ? "selected-cart-button" : "cart-button"} >{inCart ? "In cart" : "Add cart"}</button>
     </div>
   );
 }

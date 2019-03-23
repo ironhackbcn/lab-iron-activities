@@ -12,8 +12,7 @@ const Navbar = (props) => {
     totalText = `Total: ${totalPrice} $`
   }
   return (
-    <div>
-      <h1>Hola Eter</h1>
+    <div className="navbar">
       <h2>BRAND</h2>
       <ul>
         <li><button>Favorites</button>{props.favorites.length}</li>

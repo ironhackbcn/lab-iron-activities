@@ -96,12 +96,13 @@ class Activities extends Component {
 
   render() {
     return (
-      <div>
-        List activities
+      <div className="content">
         <Provider>
           <Navbar />
           <Cart />
-          {this.renderList()}
+          <div className="activities">
+            {this.renderList()}
+          </div>
         </Provider>
         <Pages
           numberPage={this.state.numberPage}

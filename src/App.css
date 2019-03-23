@@ -3,4 +3,64 @@
 body{
   margin: 0;
   font-family: Raleway, Helvetica, sans-serif;
+  color: #3d3d3d;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+.activities{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card{
+  /* background-color: red; */
+  width: 25%;
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  margin: 50px
+}
+
+.cart-button{
+  width: 100%;
+  background-color: white;
+  border: 0.5px solid #3d3d3d;
+  color: #3d3d3d;
+  padding: 10px 0;
+  border-radius: 50px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.selected-cart-button{
+  width: 100%;
+  background-color: rgb(200, 200, 200);
+  border: 0.5px solid rgb(200, 200, 200);
+  color: #3d3d3d;
+  padding: 10px 0;
+  border-radius: 50px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.cart-button:hover, .selected-cart-button:hover{
+    background-color: #3d3d3d;
+    border: 0.5px solid #3d3d3d;
+    color: white;
+}
+
+.card h3{
+  text-transform: uppercase;
+}
+
+.pages{
+  display: flex;
+  justify-content: center;
+  margin-bottom: '20px'
 }
