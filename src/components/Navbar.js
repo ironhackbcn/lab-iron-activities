@@ -36,8 +36,8 @@ export const Navbar = (props) => {
       {toggleDropdown.added ? (addedCards.length > 0) ?
         <ul className='nav-add-list'>
           {/* <button onClick={() => setToggleDropdown({ faved: false, added: false })}>x</button> */}
-          {addedCards.map(card => {
-            return <li class='nav-list-items' >
+          {addedCards.map((card, index) => {
+            return <li key={`${card.name}${index}`} className='nav-list-items' >
               <img src={card.cover_image_url} alt={card.title} />
               <p className='list-text'>{card.title}</p>
               <div className='delete-total-list'>
