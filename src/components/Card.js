@@ -1,6 +1,7 @@
 import React from 'react';
 import { withContext } from './Provider'
-
+import grayStar from '../images/gray-star.png';
+import blackStar from '../images/black-star.png';
 
 const Card = (props) => {
   const card = {
@@ -42,14 +43,10 @@ const Card = (props) => {
     borderRadius: '50px',
   }
 
-  if (inFavorites) {
-    favStyle.backgroundColor = '#3d3d3d';
-  }
-
   return (
     <div className="card">
       <div style={imageStyle}>
-        <button onClick={(e) => props.addFavorites(e, card)} style={favStyle}><img src="./images/star-gray.png" alt="star" /></button>
+        <button onClick={(e) => props.addFavorites(e, card)} style={favStyle}>{inFavorites ? <img src={blackStar} alt="star" width="30px"/>: <img src={grayStar} alt="star" width="30px"/> }</button>
         <img src={props.image} alt={props.title} width='300px' />
       </div>
       <h3>{props.title}</h3>

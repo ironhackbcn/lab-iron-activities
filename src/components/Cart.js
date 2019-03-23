@@ -1,5 +1,6 @@
 import React from 'react';
 import { withContext } from './Provider';
+import cancel from '../images/cancel.png';
 
 
 const Cart = (props) => {
@@ -7,15 +8,17 @@ const Cart = (props) => {
   function renderList() {
     if (props.cart.length > 0) {
       return props.cart.map((e, index) => {
-        return (<li key={index}>
-          <img src={e.image} alt={e.title} width='150px' />{e.title}
-          <p>$ {e.price.toFixed(2)}</p>
+        return (<li key={index} className="cart-list-item">
+          <img src={e.image} alt={e.title} height='100px' /><p>{e.title}</p>
+          <div className="cart-list-item-column">
           <button onClick={(event) => props.addCart(event, {
             image: e.image,
             title: e.title,
             description: e.description,
             price: e.price
-          })}>Delete</button>
+          })}><img src={cancel} alt="cancel" width="40px"/></button>
+          <p>$ {e.price.toFixed(2)}</p>
+          </div>
         </li>)
       });
     } else {
@@ -27,15 +30,13 @@ const Cart = (props) => {
   }
 
   function renderCartList() {
-    console.log('SHOW CART ' + props.isCart);
     if (props.isCart) {
       return (
-        <>
-          <h2>Cart List</h2>
-          <ul>
-            {renderList()}
-          </ul>
-        </>
+
+        <ul className="cart-list">
+          {renderList()}
+        </ul>
+
       );
     } else {
       return (<></>);
