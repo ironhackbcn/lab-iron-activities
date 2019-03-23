@@ -54,8 +54,12 @@ class Card extends Component {
 
   render() {
     const { title, cover_image_url, description, retail_price } = this.props.card
+    const style = {
+      backgroundImage: `url(${cover_image_url})`,
+      backgroundSize: 'cover'
+    }
     return (
-      <div className="card">
+      <div className="card" style={style}>
         <img src={cover_image_url} alt='img' />
         <h3>{title}</h3>
         <p>{description}</p>

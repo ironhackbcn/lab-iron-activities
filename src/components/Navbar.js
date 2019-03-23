@@ -43,7 +43,6 @@ class Navbar extends Component {
         }}>
           See All
         </button>
-
       </div>
     );
   }
