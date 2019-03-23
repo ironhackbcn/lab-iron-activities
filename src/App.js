@@ -28,7 +28,10 @@ class App extends Component {
       <section>
         <Context.Provider
           value={
-            { addToCart: this.handleAddToCart, }
+            { 
+              addToCart: this.handleAddToCart,
+              cart: this.state.cart,
+            }
           }
         >
         <Navbar />
