@@ -47,7 +47,6 @@ class ContextProvider extends Component {
         favorites: [...this.state.favorites, activity]
       });
     } else {
-      console.log(index);
       let favArr = this.state.favorites;
       favArr.splice(index, 1);
       this.setState({
@@ -58,7 +57,6 @@ class ContextProvider extends Component {
   }
 
   handleCart = (e, activity) => {
-    console.log(activity);
     let inCart = false;
     let index;
     this.state.cart.forEach((e, i) => {
@@ -74,7 +72,6 @@ class ContextProvider extends Component {
 
 
     } else {
-      console.log(index);
       let cartArr = this.state.cart;
       cartArr.splice(index, 1);
       this.setState({
@@ -84,7 +81,6 @@ class ContextProvider extends Component {
   }
 
   handleCartList = () => {
-    console.log('Show cart');
     this.setState({
       showCart : !this.state.showCart
     })
