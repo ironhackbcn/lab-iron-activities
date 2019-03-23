@@ -8,16 +8,30 @@ import './style.css'
 import CardsList from './components/CardsList'
 
 // Context
-const MyContext = React.createContext();
-export const Consumer = MyContext.Consumer
+const Context = React.createContext();
+export const Consumer = Context.Consumer
 
 class App extends Component {
+  state = {
+    cart: [],
+  }
+
+  handleAddToCart = (newActivity) => {
+    this.setState(
+      { cart: [...this.state.cart, newActivity] }
+    )
+  }
+
   render() {
     return (
       <section>
-        <MyContext.Provider value={'Provider'}>
+        <Context.Provider
+          value={
+            { addToCart: this.handleAddToCart, }
+          }
+        >
           <CardsList />
-        </MyContext.Provider>
+        </Context.Provider>
       </section>
     );
   }

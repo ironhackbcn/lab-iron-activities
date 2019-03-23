@@ -20,12 +20,11 @@ class CardsList extends Component {
     this.setState(
       { activities: data }
     )
-    console.log(this.state.activities)
   }
 
   renderList = () => {
     return this.state.activities.map(activity => {
-      return <Card key={activity.uuid}activity={activity} />
+      return <Card key={activity.uuid} activity={activity} />
     })
   }
 
