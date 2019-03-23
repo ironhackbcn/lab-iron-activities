@@ -5,6 +5,7 @@ import 'bulma/css/bulma.css'
 import './style.css'
 
 // Components
+import Navbar from './components/Navbar'
 import CardsList from './components/CardsList'
 
 // Context
@@ -30,7 +31,8 @@ class App extends Component {
             { addToCart: this.handleAddToCart, }
           }
         >
-          <CardsList />
+        <Navbar />
+        <CardsList />
         </Context.Provider>
       </section>
     );

@@ -13,10 +13,6 @@ body {
   padding: 0;
 }
 
-section{
-  margin: 3rem 0
-}
-
 .columns{
   flex-wrap: wrap;
 }
