@@ -9,12 +9,12 @@ export class Navbar extends Component {
       <nav className="navbar is-fixed-top is-primary is-flex-mobile">
         <div className="container">
           <div className="field is-grouped">
-            <p className="control">
+            <div className="control">
               <Favorite />
-            </p>
-            <p className="control">
+            </div>
+            <div className="control">
               <Cart />
-            </p>
+            </div>
           </div>
         </div>
       </nav>
