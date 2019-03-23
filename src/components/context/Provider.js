@@ -42,6 +42,25 @@ class AppContext extends Component {
     }
   }
 
+  onDeleteFromList = (card, str) => {
+    if (str === 'add') {
+      const copiedArray = [...this.state.addedCards];
+      const deleteCard = copiedArray.filter(e => e.title !== card.title);
+      this.setState({
+        addedCards: deleteCard,
+        totalAmount: this.state.totalAmount - card.retail_price.value,
+        counterCart: deleteCard.length,
+      })
+    } else {
+      const copiedArray = [...this.state.favedCards];
+      const deleteCard = copiedArray.filter(e => e.title !== card.title);
+      this.setState({
+        favedCards: deleteCard,
+        counterFav: deleteCard.length,
+      })
+    }
+  }
+
   onNewFav = (card) => {
     const copiedArray = [...this.state.favedCards];
     if (copiedArray.filter(e => e.title === card.title).length > 0) {
@@ -65,6 +84,7 @@ class AppContext extends Component {
         addCard: this.onNewCard, favCard: this.onNewFav, totalAmount: this.state.totalAmount,
         addedCards: this.state.addedCards,
         favedCards: this.state.favedCards,
+        deleteCardFromList: this.onDeleteFromList,
       }}>
       {this.props.children}
     </MyContext.Provider>

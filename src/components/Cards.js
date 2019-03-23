@@ -34,7 +34,7 @@ class Cards extends Component {
       case 'isLoading':
         return 'Loading...'
       case 'isLoaded':
-        return <ul class='all-events-list'>
+        return <ul className='all-events-list'>
           {cards.map((card, index) =>
             <li className='event-item' key={`${index}${card.title}`}>
               <div className='fav-container'>

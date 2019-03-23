@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 
 const buttonSelected = {
-  fontWeight: 'bold',
-  padding: '15px 60px',
-  borderRadius: '18px',
   background: 'rgb(135, 135, 135)',
 }
 
 const buttonNotSelected = {
-  fontWeight: 'bold',
-  padding: '15px 60px',
-  borderRadius: '18px',
   background: 'rgb(222, 224, 226)',
 }
 
@@ -41,7 +35,7 @@ export class Button extends Component {
   render() {
     const { text, styleClass } = this.state;
 
-    return <button style={styleClass} onClick={(event) => {
+    return <button style={styleClass} className='event-add-button' onClick={(event) => {
       this.handleClick(event);
       this.props.onClickData();
     }}>{text}</button>

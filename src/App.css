@@ -20,7 +20,7 @@ li {
 }
 
 .nav {
-  background: rgb(226, 222, 222);
+  background: rgb(207, 206, 206);
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -51,11 +51,18 @@ li {
   flex-direction: column;
   justify-content: flex-end;
   top: 15%;
-  right: 15%;
-  background: gray;
+  right: 10%;
+  background: rgb(207, 206, 206);
   z-index: 4;
   width: 35%;
   padding: 0;
+  box-shadow: 0 0 10px rgb(98, 98, 98);
+}
+
+#nav-fav-list {
+  position: absolute;
+  top: 15%;
+  right: 6%;
 }
 
 /* .nav-add-list button {
@@ -84,12 +91,18 @@ li {
 
 .list-text {
   margin: 0 5px;
+  width: 100%;
+  text-align: justify;
 }
 
 .delete-total-list {
   display: flex;
   flex-direction: column;
   width: 40%;
+}
+
+.delete-total-list p {
+  text-align: end;
 }
 
 .delete-item-list {
@@ -115,9 +128,10 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 26%;
-  height: 80%;
+  height: 500px;
+  margin-bottom: 25px;
 }
 
 h4 {
@@ -125,16 +139,18 @@ h4 {
   color: rgb(65, 64, 64);
   margin: 0;
   text-align: center;
+  height: 20%;
 }
 
 .event-description {
   color: gray;
   text-align: justify;
+  height: 20%;
 }
 
 .event-img {
   width: 100%;
-  height: auto;
+  height: 35%;
   margin-bottom: 20px;
 }
 
@@ -157,4 +173,13 @@ h4 {
   display: flex;
   justify-content: flex-end;
   width: 100%;
+}
+
+.event-add-button {
+  position: relative;
+  bottom: 5px;
+  width: 100%;
+  font-weight: 'bold';
+  padding: 15px 60px;
+  border-radius: 18px;
 }
