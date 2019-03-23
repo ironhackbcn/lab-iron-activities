@@ -13,6 +13,8 @@ export const withContext = (Comp) => {
               cart={value.cart}
               addCart={value.addCart}
               counter={value.counter}
+              showCart={value.showCart}
+              isCart={value.isCart}
               {...this.props}
             />
           )}
@@ -27,13 +29,8 @@ class ContextProvider extends Component {
   state = {
     favorites: [],
     cart: [],
-    counter: 1
-  }
-
-  handleIncrease = () => {
-    this.setState({
-      counter: this.state.counter + 1,
-    })
+    counter: 1,
+    showCart: false
   }
 
   handleFavorites = (e, activity) => {
@@ -86,8 +83,11 @@ class ContextProvider extends Component {
     }
   }
 
-  handleCartList = (e)=>{
-
+  handleCartList = () => {
+    console.log('Show cart');
+    this.setState({
+      showCart : !this.state.showCart
+    })
   }
 
   render() {
@@ -99,6 +99,7 @@ class ContextProvider extends Component {
         addFavorites: this.handleFavorites,
         addCart: this.handleCart,
         showCart: this.handleCartList,
+        isCart: this.state.showCart
       }}>
         {this.props.children}
       </MyContext.Provider>

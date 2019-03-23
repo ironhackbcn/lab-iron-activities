@@ -8,7 +8,7 @@ class App extends Component {
       <div>
         App
         <Route path={`/`} component={Activities} />
-        
+
       </div>
     );
   }

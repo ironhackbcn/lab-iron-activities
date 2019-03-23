@@ -17,7 +17,7 @@ const Navbar = (props) => {
       <h2>BRAND</h2>
       <ul>
         <li><button>Favorites</button>{props.favorites.length}</li>
-        <li><button>Cart</button>{props.cart.length} {totalText}</li>
+        <li><button onClick={props.showCart}>Cart</button>{props.cart.length} {totalText}</li>
       </ul>
 
     </div>
