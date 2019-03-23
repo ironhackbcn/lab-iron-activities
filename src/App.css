@@ -1,0 +1,160 @@
+li {
+  list-style-type: none;
+}
+
+.counter {
+  font-size: 12px;
+  text-align: center;
+  width: 1.5%;
+  background: rgb(77, 163, 202);
+  color: white;
+  border-radius: 50%;
+}
+
+.counter {
+  width: 30%;
+  padding: 0;
+  position: relative;
+  top: 20px;
+  left: 35px;
+}
+
+.nav {
+  background: rgb(226, 222, 222);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav-items {
+  display: flex;
+  flex-direction: row;
+  margin-right: 4rem;
+}
+
+.nav-items button {
+  margin: 0 10px;
+}
+
+.nav-img {
+  width: 1rem;
+  height: auto;
+}
+
+.nav-total {
+  align-self: flex-end;
+}
+
+.nav-add-list {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  top: 15%;
+  right: 15%;
+  background: gray;
+  z-index: 4;
+  width: 35%;
+  padding: 0;
+}
+
+/* .nav-add-list button {
+  margin: 5px 5px 0 0;
+  position: fixed;
+  
+} */
+
+.nav-list-items {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  margin: 5px 5px;
+}
+
+.nav-list-items img {
+  height: 40%;
+  width: 40%;
+}
+
+.nav-list-items p {
+  margin-top: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+.list-text {
+  margin: 0 5px;
+}
+
+.delete-total-list {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.delete-item-list {
+  align-self: flex-end;
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+
+.empty-text {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.all-events-list {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.event-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 26%;
+  height: 80%;
+}
+
+h4 {
+  text-transform: uppercase;
+  color: rgb(65, 64, 64);
+  margin: 0;
+  text-align: center;
+}
+
+.event-description {
+  color: gray;
+  text-align: justify;
+}
+
+.event-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.event-fav {
+  border-radius: 50%;
+  width: 32px;
+  position: relative;
+  align-self: flex-end;
+  z-index: 2;
+  top: 13px;
+  left: 13px;
+}
+
+.event-fav img {
+  width: 100%;
+  height: auto;
+}
+
+.fav-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
