@@ -33,24 +33,26 @@ export class Cart extends Component {
                 <div className="dropdown-menu">
                   <div className="dropdown-content">
                     {
-                      value.cart.map(activity => {
-                        return (
-                          <React.Fragment key={activity.uuid}>
-                            <div className="dropdown-item">
-                              <img src={activity.cover_image_url} alt={activity.title} />
-                              <button
-                                onClick={(event) => this.handleClick(value.cart, value.removeFromCart, event)}
-                                className="icon is-small remove-activity"
-                                value={activity.uuid}
-                              >
-                                <i className="fas fa-times"></i>
-                              </button>
-                              <p className="description">{activity.title}</p>
-                            </div>
-                            <hr className="dropdown-divider"></hr>
-                          </React.Fragment>
-                        )
-                      })
+                      (value.cart.length > 0) ?
+                        value.cart.map(activity => {
+                          return (
+                            <React.Fragment key={activity.uuid}>
+                              <div className="dropdown-item">
+                                <img src={activity.cover_image_url} alt={activity.title} />
+                                <button
+                                  onClick={(event) => this.handleClick(value.cart, value.removeFromCart, event)}
+                                  className="icon is-small remove-activity"
+                                  value={activity.uuid}
+                                >
+                                  <i className="fas fa-times"></i>
+                                </button>
+                                <p className="description">{activity.title}</p>
+                              </div>
+                              <hr className="dropdown-divider"></hr>
+                            </React.Fragment>
+                          )
+                        })
+                        : <div className="dropdown-item">You don't have booked an activity yet!</div>
                     }
                   </div>
                 </div>

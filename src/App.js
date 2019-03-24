@@ -36,6 +36,12 @@ class App extends Component {
     )
   }
 
+  handleRemoveFromFavorite = (updatedFavoriteList) => {
+    this.setState(
+      { favorite: [...updatedFavoriteList] }
+    )
+  }
+
   render() {
     return (
       <section>
@@ -46,7 +52,8 @@ class App extends Component {
               cart: this.state.cart,
               addToFavorite: this.handleAddToFavorite,
               favorite: this.state.favorite,
-              removeFromCart: this.handleRemoveFromCart
+              removeFromCart: this.handleRemoveFromCart,
+              removeFromFavorite: this.handleRemoveFromFavorite
             }
           }
         >

@@ -16,6 +16,19 @@ class ButtonCart extends Component {
     }
   }
 
+  // handleButtonStatus = (cartList) => {
+  //   console.log(cartList)
+  //   console.log(this.state)
+  //   cartList.forEach(activity => {
+  //     if (this.state.isAddToCart) {
+  //       console.log('booked status', activity.uuid)
+  //       this.setState(
+  //         { isAddToCart: false }
+  //       )
+  //     }
+  //   })
+  // }
+
   render() {
     return (
       <Consumer>
