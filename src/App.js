@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 // CSS
 import 'bulma/css/bulma.css'
@@ -10,7 +11,7 @@ import CardsList from './components/CardsList'
 import ActivityDetail from './components/ActivityDetail'
 
 // Router
-import { Switch, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 // Context
 const Context = React.createContext();
@@ -20,6 +21,20 @@ class App extends Component {
   state = {
     cart: [],
     favorite: [],
+    activities: [],
+  }
+
+  // API
+  componentDidMount = async () => {
+    const itemsPerPage = 20
+    const offset = 0
+
+    const apiCall = await axios.get(`https://api.musement.com/api/v3/venues/164/activities?limit=${itemsPerPage}&offset=${offset}`)
+    const data = apiCall.data
+
+    this.setState(
+      { activities: data }
+    )
   }
 
   handleAddToCart = (newActivity) => {
@@ -62,8 +77,8 @@ class App extends Component {
           }
         >
           <Route path='/' component={Navbar} />
-          <Route exact path='/' component={CardsList} />
-          <Route exact path='/activity/:id' component={ActivityDetail} />
+          <Route exact path='/' render={(props) => <CardsList {...props} activities={this.state.activities} />} />
+          <Route exact path='/activity/:id' render={(props) => <ActivityDetail {...props} activities={this.state.activities} />} />
         </Context.Provider>
       </section>
     );

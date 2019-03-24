@@ -21,7 +21,7 @@ export class Favorite extends Component {
               <div className="dropdown-trigger">
                 <button className="button is-primary">
                   <span className="icon is-small">
-                    <i className="fas fa-shopping-cart"></i>
+                    <i className="fas fa-star"></i>
                   </span>
                   <span>{value.favorite.length} Favorites</span>
                   <span className="icon is-small">
