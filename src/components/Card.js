@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 // Components
 import ButtonCart from './ButtonCart';
@@ -18,7 +19,7 @@ class Card extends Component {
         <div className="card-content">
           <div className="media">
             <div className="media-content">
-              <p className="title is-4">{title}</p>
+              <Link to={`/activity/${this.props.activity.uuid}`} className="title is-4">{title}</Link>
             </div>
           </div>
           <div className="content">{description}</div>

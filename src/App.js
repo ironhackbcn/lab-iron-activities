@@ -7,6 +7,10 @@ import './style.css'
 // Components
 import Navbar from './components/Navbar'
 import CardsList from './components/CardsList'
+import ActivityDetail from './components/ActivityDetail'
+
+// Router
+import { Switch, Route } from 'react-router-dom'
 
 // Context
 const Context = React.createContext();
@@ -57,8 +61,9 @@ class App extends Component {
             }
           }
         >
-          <Navbar />
-          <CardsList />
+          <Route path='/' component={Navbar} />
+          <Route exact path='/' component={CardsList} />
+          <Route exact path='/activity/:id' component={ActivityDetail} />
         </Context.Provider>
       </section>
     );
