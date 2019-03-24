@@ -61,19 +61,19 @@ class Cards extends Component {
             {cards.map((card, index) =>
               <li className='event-item' key={`${index}${card.title}`}>
                 <div className='fav-container'>
-                  <FavButton onClickData={() => theme.favCard(card)} />
+                  <FavButton onClickData={() => theme.favCard(card)} favedCards={theme.favedCards} currentCard={card} />
                 </div>
                 <img className='event-img' src={card.cover_image_url} alt={card.title} />
                 <Link to={`/event/${card.uuid}`} ><h4>{card.title}</h4></Link>
                 <p className='event-description'>{card.description}</p>
                 <p>{card.retail_price.formatted_value}</p>
-                <Button onClickData={() => { theme.addCard(card) }} />
+                <Button onClickData={() => { theme.addCard(card) }} addedCards={theme.addedCards} currentCard={card} />
               </li>)}
           </ul>
           <div id='page-buttons'>
             {totalPages.map((page, index) => {
               let marked;
-              if (index === parseInt(this.props.match.params.pageNumber)) {
+              if (index === parseInt(this.props.match.params.pageNumber) || index === 0 && this.props.match.params.pageNumber == null) {
                 marked = {
                   background: 'gray',
                 }

@@ -12,20 +12,40 @@ export class Button extends Component {
 
   state = {
     text: 'Add to cart',
-    styleBool: true,
     styleClass: buttonNotSelected,
   }
 
-  handleClick = (event) => {
-    if (this.state.styleBool) {
+  componentDidMount() {
+    this.checkIfCardSelected();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const prevCardsInclude = prevProps.addedCards.filter(e => e.title === this.props.currentCard.title);
+    const currentCardsInclude = this.props.addedCards.filter(e => e.title === this.props.currentCard.title);
+
+    if (!prevCardsInclude.length && currentCardsInclude.length === 1) {
       this.setState({
-        styleBool: !this.state.styleBool,
+        styleClass: buttonSelected,
+        text: 'In cart'
+      })
+    } else if (prevCardsInclude.length === 1 && !currentCardsInclude.length) {
+      this.setState({
+        styleClass: buttonNotSelected,
+        text: 'Add to cart'
+      })
+    }
+  }
+
+  checkIfCardSelected() {
+    const currentCardsInclude = this.props.addedCards.filter(e => e.title === this.props.currentCard.title);
+
+    if (currentCardsInclude.length) {
+      this.setState({
         styleClass: buttonSelected,
         text: 'In cart'
       })
     } else {
       this.setState({
-        styleBool: !this.state.styleBool,
         styleClass: buttonNotSelected,
         text: 'Add to cart'
       })
@@ -33,10 +53,10 @@ export class Button extends Component {
   }
 
   render() {
+
     const { text, styleClass } = this.state;
 
     return <button style={styleClass} className='event-add-button' onClick={(event) => {
-      this.handleClick(event);
       this.props.onClickData();
     }}>{text}</button>
 

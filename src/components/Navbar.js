@@ -53,7 +53,7 @@ export const Navbar = (props) => {
         </div> : <span />
       }
       {toggleDropdown.faved ? (favedCards.length > 0) ?
-        <ul id='nav-fav-list' class='nav-add-list'>
+        <ul id='nav-fav-list' className='nav-add-list'>
           {/* <button onClick={() => setToggleDropdown({ faved: false, added: false })}>x</button> */}
           {favedCards.map((card, index) => {
             return <li className='nav-list-items' key={`${index}${card.title}`}>
