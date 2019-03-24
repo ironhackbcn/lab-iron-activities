@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { EventDetails } from './components/EventDetails';
+import EventDetails from './components/EventDetails';
 import NoMatch from './components/NoMatch';
 import Index from './components/Index';
 

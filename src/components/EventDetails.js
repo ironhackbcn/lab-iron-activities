@@ -3,8 +3,9 @@ import { MyContext } from './context/Provider';
 import axios from 'axios';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-export class EventDetails extends Component {
+class EventDetails extends Component {
 
   state = {
     card: {},
@@ -29,8 +30,7 @@ export class EventDetails extends Component {
   }
 
   render() {
-    const theme = this.context;
-    console.log(theme);
+    //const theme = this.context;
     const { status, card } = this.state;
     switch (status) {
       case 'isLoading':
@@ -52,8 +52,9 @@ export class EventDetails extends Component {
             </ul>
           </div>
           <div className='event-details-buttons'>
-            <Button onClickData={() => { theme.addCard(card) }} />
-            <Link to='/'>Back to Home</Link>
+            {/* <Button onClickData={() => { theme.addCard(card) }} addedCards={theme.addedCards} currentCard={card} /> */}
+            <button className='back-buttons' onClick={() => this.props.history.goBack()}>Back</button>
+            <Link className='back-buttons' to='/'>Back to Home</Link>
           </div>
         </article>
       case 'isError':
@@ -62,3 +63,5 @@ export class EventDetails extends Component {
   }
 }
 EventDetails.contextType = MyContext;
+
+export default withRouter(EventDetails);
