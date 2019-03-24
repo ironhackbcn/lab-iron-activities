@@ -54,31 +54,26 @@ class Card extends Component {
 
   render() {
     const { title, cover_image_url, description, retail_price } = this.props.card
-    const style = {
-      backgroundImage: `url(${cover_image_url})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center'
-    }
     return (
-      <div className="card" style={style}>
-        <img src={cover_image_url} alt='img' />
-        <h3>{title}</h3>
-        <p>{description}</p>
-        <h4>{retail_price.currency} {retail_price.value}</h4>
-        <button onClick={(event)=> {
-          this.addCard(event)
-        }}>
-          Add
-        </button>
-        <button onClick={(event)=>{
-          this.sumFavorites(event)
-        }}>
-          Favorite
-        </button>
-        <h4>{this.state.favorites}</h4>
-        <Link to={`/${title}`} >
-        More
-        </Link>
+      <div className="card" > 
+          <img src={cover_image_url} alt='img' />
+          <h3>{title}</h3>
+          <p>{description}</p>
+          <h4>{retail_price.currency} {retail_price.value}</h4>
+          <button onClick={(event)=> {
+            this.addCard(event)
+          }}>
+            Add
+          </button>
+          <button onClick={(event)=>{
+            this.sumFavorites(event)
+          }}>
+            Favorite
+          </button>
+          <h4>{this.state.favorites}</h4>
+          <Link to={`/${title}`} >
+            More
+          </Link>
       </div>
     );
   }

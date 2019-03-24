@@ -15,6 +15,7 @@ export const contextHOC = (Comp) => {
               addFavorites={value.addFavorites}
               totalFavorites={value.totalFavorites}
               restFavorites={value.restFavorites}
+              removeCard={value.removeCard}
               {...this.props}
             />
             )
@@ -39,6 +40,21 @@ class ContextProvider extends Component {
     })
   }
 
+  removeCard = (event, newCard) => {
+    event.preventDefault()
+    const cards  = [...this.state.cards]
+    cards.forEach((card, index) => {
+      if(card.title === newCard.title){
+        cards.splice(index, 1)
+      }
+      return cards
+    })
+    this.setState({
+      cards: cards
+    })
+    
+  }
+
   addFavorites = () => {
     this.setState({
       favorites: this.state.favorites + 1
@@ -52,7 +68,7 @@ class ContextProvider extends Component {
   }
 
   render() {
-
+    console.log(this.state.cards)
     return (
       <div>
         <Context.Provider value={{
@@ -61,6 +77,7 @@ class ContextProvider extends Component {
           addFavorites: this.addFavorites,
           restFavorites: this.restFavorites,
           totalFavorites: this.state.favorites,
+          removeCard: this.removeCard,
         }}>
           {this.props.children}
         </Context.Provider>

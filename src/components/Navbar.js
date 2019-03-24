@@ -10,11 +10,13 @@ class Navbar extends Component {
   }
   paintCards = () => {
     const { isClicked } = this.state
+    const { removeCard } = this.props
     if(isClicked){
       return this.state.paintCards.map((card, index) => (
         <div key={index} >
           <h4>{card.title}</h4>
           <p>{card.counter}</p>
+          <button onClick={(event)=>{removeCard(event, card)}}>Delete</button>
         </div>
       ))
     }
@@ -43,14 +45,14 @@ class Navbar extends Component {
 
   render() {
     const {totalFavorites} = this.props
-    const { totalAmount } = this.state
+    const { totalAmount, isClicked } = this.state
     return (
       <div className="navbar">
         <h2>Navbar</h2>
         <h5>{totalFavorites}</h5>
         <div className="navbar-card-menu">
           {this.paintCards()}
-          {totalAmount > 0 ? <h3>{totalAmount}</h3> : null}
+          {isClicked && totalAmount > 0 ? <h3>{totalAmount}</h3> : null}
         </div>
         <button onClick={(event)=> {
           this.updateCards()

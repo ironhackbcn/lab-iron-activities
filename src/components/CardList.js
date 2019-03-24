@@ -19,6 +19,13 @@ class CardList extends Component {
     .catch(error => console.log(error))
   }
 
+  handleClick = (event, num) => {
+    event.preventDefault()
+    this.setState({
+      offSet: num
+    })
+  }
+
   render() {
     const { cards } = this.state
     return (

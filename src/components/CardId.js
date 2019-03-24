@@ -26,7 +26,6 @@ class CardId extends Component {
   const { id } = this.props.match.params;
   cardCall()
   .then(result => {
-    
     const card = result.data.filter(card => card.title === id)
     this.setState({
       cards: card
