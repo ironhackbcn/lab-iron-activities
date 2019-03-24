@@ -20,6 +20,7 @@ body {
 
 .columns{
   flex-wrap: wrap;
+  padding-top: 6rem;
 }
 
 .navbar .container{
@@ -63,4 +64,19 @@ body {
   right: 4px;
   cursor: pointer;
   border: 0;
+}
+
+.card {
+  box-shadow: none;
+}
+
+.card-content{
+  padding: 1.5rem 0;
+}
+
+.button.is-success{
+  cursor: default;
+}
+.button.is-success:hover{
+  background-color: #23d160;
 }
