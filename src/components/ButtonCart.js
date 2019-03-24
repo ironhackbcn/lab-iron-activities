@@ -5,13 +5,11 @@ class ButtonCart extends Component {
 
   // Si el uuid de de l'activitat actual SI està dins del array cart --> isActivityInsideCart: true
   // Si el uuid de de l'activitat actual NO està dins del array cart --> isActivityInsideCart: false
+
   handleIsActivityInsideCart = (cartList) => {
-    let isActivityInsideCart = false
-    cartList.forEach(activity => {
-      if (this.props.activity.uuid === activity.uuid) {
-        isActivityInsideCart = true
-      }
-    })
+    const isActivityInsideCart = cartList.find(activity => (
+      activity.uuid === (this.props.activity.uuid)
+    ))
     return isActivityInsideCart
   }
 
@@ -20,13 +18,12 @@ class ButtonCart extends Component {
       <Consumer>
         {
           (value) => {
-            console.log(this.handleIsActivityInsideCart(value.cart))
             return (
               <div>
                 {
                   (this.handleIsActivityInsideCart(value.cart))
                     ? <button className='button is-success disabled'>Booked</button>
-                    : <button onClick={() => value.addToCart(this.props.activity) } className='button is-link'>Add to cart</button>
+                    : <button onClick={() => value.addToCart(this.props.activity)} className='button is-link'>Add to cart</button>
                 }
               </div>
             )

@@ -3,17 +3,14 @@ import { Consumer } from '../App';
 
 export class ButtonFavorite extends Component {
 
-  state = {
-    isFavorite: false,
-  }
+  // Si el uuid de de l'activitat SI està dins del array favorite --> isActivityInsideFavorite: true
+  // Si el uuid de de l'activitat NO està dins del array favorite --> isActivityInsideFavorite: false
 
-  handleClick = (addToFavorite) => {
-    if (!this.state.isFavorite) {
-      this.setState(
-        { isFavorite: true }
-      )
-      addToFavorite(this.props.activity)
-    }
+  handleIsActivityInsideFavorite = (favoriteList) => {
+    const isActivityInsideFavorite = favoriteList.find(activity => (
+      activity.uuid === (this.props.activity.uuid)
+    ))
+    return isActivityInsideFavorite
   }
 
   render() {
@@ -24,13 +21,13 @@ export class ButtonFavorite extends Component {
             return (
               <div>
                 {
-                  (this.state.isFavorite)
-                  ? <button onClick={() => { this.handleClick(value.addToFavorite) }} className="button is-success is-favorite">
+                  (this.handleIsActivityInsideFavorite(value.favorite))
+                    ? <button className="button is-success is-favorite">
                       <span className="icon is-small">
                         <i className="fas fa-star"></i>
                       </span>
                     </button>
-                  : <button onClick={() => { this.handleClick(value.addToFavorite) }} className="button is-white is-favorite">
+                    : <button onClick={() => value.addToFavorite(this.props.activity)} className="button is-white is-favorite">
                       <span className="icon is-small">
                         <i className="fas fa-star"></i>
                       </span>
