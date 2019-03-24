@@ -64,10 +64,3 @@ export class Favorite extends Component {
 }
 
 export default Favorite
-
-// <button className="button is-primary">
-// <span className="icon is-small">
-//   <i className="fas fa-star"></i>
-// </span>
-// <span>{value.favorite.length} Favorites</span>
-// </button>

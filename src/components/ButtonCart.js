@@ -3,43 +3,30 @@ import { Consumer } from '../App'
 
 class ButtonCart extends Component {
 
-  state = {
-    isAddToCart: false,
+  // Si el uuid de de l'activitat actual SI està dins del array cart --> isActivityInsideCart: true
+  // Si el uuid de de l'activitat actual NO està dins del array cart --> isActivityInsideCart: false
+  handleIsActivityInsideCart = (cartList) => {
+    let isActivityInsideCart = false
+    cartList.forEach(activity => {
+      if (this.props.activity.uuid === activity.uuid) {
+        isActivityInsideCart = true
+      }
+    })
+    return isActivityInsideCart
   }
-
-  handleClick = (addToCart) => {
-    if (!this.state.isAddToCart) {
-      this.setState(
-        { isAddToCart: true }
-      )
-      addToCart(this.props.activity)
-    }
-  }
-
-  // handleButtonStatus = (cartList) => {
-  //   console.log(cartList)
-  //   console.log(this.state)
-  //   cartList.forEach(activity => {
-  //     if (this.state.isAddToCart) {
-  //       console.log('booked status', activity.uuid)
-  //       this.setState(
-  //         { isAddToCart: false }
-  //       )
-  //     }
-  //   })
-  // }
 
   render() {
     return (
       <Consumer>
         {
           (value) => {
+            console.log(this.handleIsActivityInsideCart(value.cart))
             return (
               <div>
                 {
-                  (this.state.isAddToCart)
+                  (this.handleIsActivityInsideCart(value.cart))
                     ? <button className='button is-success disabled'>Booked</button>
-                    : <button onClick={() => { this.handleClick(value.addToCart) }} className='button is-link'>Add to cart</button>
+                    : <button onClick={() => value.addToCart(this.props.activity) } className='button is-link'>Add to cart</button>
                 }
               </div>
             )
@@ -51,4 +38,3 @@ class ButtonCart extends Component {
 }
 
 export default ButtonCart
-
