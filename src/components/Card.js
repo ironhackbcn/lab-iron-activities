@@ -56,7 +56,8 @@ class Card extends Component {
     const { title, cover_image_url, description, retail_price } = this.props.card
     const style = {
       backgroundImage: `url(${cover_image_url})`,
-      backgroundSize: 'cover'
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
     }
     return (
       <div className="card" style={style}>

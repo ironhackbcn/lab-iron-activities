@@ -5,7 +5,8 @@ class Navbar extends Component {
 
   state = {
     paintCards: [],
-    isClicked: false
+    isClicked: false,
+    totalAmount: 0
   }
   paintCards = () => {
     const { isClicked } = this.state
@@ -24,19 +25,32 @@ class Navbar extends Component {
     this.setState({
       paintCards: cards,
       isClicked: !this.state.isClicked
-    },()=>{this.paintCards()})
+    },()=>{
+        this.paintCards() 
+        this.totalAmount()
+      })
+  }
+
+  totalAmount = () => {
+    const total = this.state.paintCards.reduce((acc, next) => {
+      return acc + next.price
+    },0)
+    this.setState({
+      totalAmount: total
+    })
   }
 
 
   render() {
     const {totalFavorites} = this.props
-    console.log(this.state.isClicked)
+    const { totalAmount } = this.state
     return (
       <div className="navbar">
         <h2>Navbar</h2>
         <h5>{totalFavorites}</h5>
         <div className="navbar-card-menu">
           {this.paintCards()}
+          {totalAmount > 0 ? <h3>{totalAmount}</h3> : null}
         </div>
         <button onClick={(event)=> {
           this.updateCards()
