@@ -1,0 +1,65 @@
+
+/* ---- reset ---- */
+
+html {
+   box-sizing: border-box;
+ }
+ *, *:before, *:after {
+   box-sizing: inherit;
+ }
+
+ body{
+    margin: 0;
+ }
+ 
+.row{
+   width: 90%;
+   margin: 0 auto;
+}
+
+ /* ---- Card list ---- */
+
+.card-list {
+   padding: 0;
+   margin: 0;
+   list-style: none;
+   display: -webkit-box;
+   display: -moz-box;
+   display: -ms-flexbox;
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row wrap;
+   justify-content: space-around;
+}
+
+.card {
+   width: 300px;
+   overflow: hidden;
+   border-radius: 8px;
+   margin: 16px;
+   border: 1px solid #ccc;
+}
+
+.card .card-img {
+   position: relative;
+   width: 100%;
+}
+
+.card .card-img button {
+   position: absolute;
+   right: 0;
+}
+
+.card .card-img img {
+   width: 100%;
+}
+
+.card .card-content{
+   padding: 16px;
+}
+
+.card .card-content h2,
+.card .card-content p,
+.card .card-content h3{
+   margin: 0 0 16px 0;
+}
