@@ -25,7 +25,7 @@ class ButtonCart extends Component {
               <div>
                 {
                   (this.state.isAddToCart)
-                    ? <button disabled className='button is-success disabled'>Booked</button>
+                    ? <button className='button is-success disabled'>Booked</button>
                     : <button onClick={() => { this.handleClick(value.addToCart) }} className='button is-link'>Add to cart</button>
                 }
               </div>

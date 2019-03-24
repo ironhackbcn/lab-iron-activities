@@ -6,6 +6,11 @@ html {
   box-sizing: inherit;
 }
 
+/* Clicks inside the button will always be for the button itself */
+button > * {
+  pointer-events: none;
+}
+
 body {
   font-size: 16px;
   line-height: 147%;
@@ -30,6 +35,10 @@ body {
   border-radius: 50%;
 }
 
+.dropdown-content .dropdown-divider:last-child{
+  display: none;
+}
+
 .dropdown-item{
   display: flex;
   flex-direction: row;
@@ -48,6 +57,10 @@ body {
   padding-left: 1rem;
 }
 
-.dropdown-content .dropdown-divider:last-child{
-  display: none;
+.remove-activity{
+  position: absolute;
+  top: 0;
+  right: 4px;
+  cursor: pointer;
+  border: 0;
 }

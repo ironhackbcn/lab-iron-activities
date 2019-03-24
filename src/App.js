@@ -24,6 +24,12 @@ class App extends Component {
     )
   }
 
+  handleRemoveFromCart = (updatedCartList) => {
+    this.setState(
+      { cart: [...updatedCartList] }
+    )
+  }
+
   handleAddToFavorite = (newActivity) => {
     this.setState(
       { favorite: [...this.state.favorite, newActivity] }
@@ -35,16 +41,17 @@ class App extends Component {
       <section>
         <Context.Provider
           value={
-            { 
+            {
               addToCart: this.handleAddToCart,
               cart: this.state.cart,
               addToFavorite: this.handleAddToFavorite,
               favorite: this.state.favorite,
+              removeFromCart: this.handleRemoveFromCart
             }
           }
         >
-        <Navbar />
-        <CardsList />
+          <Navbar />
+          <CardsList />
         </Context.Provider>
       </section>
     );
