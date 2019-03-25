@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { withCounter } from './context/Provider';
-import roundToTwoDecimals from '../helpers/twoDecimals'
+// import roundToTwoDecimals from '../helpers/twoDecimals'
 
 export const Navbar = (props) => {
   const [toggleDropdown, setToggleDropdown] = useState({ added: false, faved: false });

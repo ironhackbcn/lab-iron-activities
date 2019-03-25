@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { MyContext } from './context/Provider';
 import axios from 'axios';
-import { Button } from './Button';
+// import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
@@ -39,7 +39,7 @@ class EventDetails extends Component {
         return <article className='event-details'>
           <h3>{card.title}</h3>
           <div className='event-details-info'>
-            <img src={card.cover_image_url} />
+            <img src={card.cover_image_url} alt={card.title} />
             <ul>
               <li><p className='event-details-price'><b>Price: </b>{card.retail_price.formatted_value}</p></li>
               {card.venues.map((venue, index) => {
@@ -58,7 +58,8 @@ class EventDetails extends Component {
           </div>
         </article>
       case 'isError':
-        return 'Error'
+        return 'Error';
+      default:
     }
   }
 }
