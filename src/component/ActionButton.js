@@ -1,10 +1,16 @@
 import React from 'react';
+import actionTypes from '../store/actionTypes';
 
 const Button = ({ index, action, title, updateClass }) => {
 
   const handleClick = (e) => {
     updateClass('added');
-    action(index);
+
+    if (title === 'ADD TO CART')
+      action(actionTypes.ADD_ACTIVITY,index);
+    else
+      action(actionTypes.REMOVE_ACTIVITY,index);
+
   }
 
   return (
